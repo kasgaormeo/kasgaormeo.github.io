@@ -23,19 +23,42 @@ email: darkkasga@dkct-us.com
 description: >- # this means to ignore newlines until "baseurl:"
   Nothing.
 baseurl: "" # the subpath of your site, e.g. /blog
-markdown: kramdown
+markdown: kgramdown
 url: "https://kasgaormeo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#url: ""
 twitter_username: kasgaromeo
 github_username:  kasgaormeo
+github: [metadata]
 
 # Build settings
 theme: jekyll-theme-hacker
+#theme: null
 remote_theme: pages-themes/hacker
 plugins:
+  - jekyll-feed
   - jekyll-remote-theme # add this line to the plugins list if you already have one
-
+  - jekyll-github-metadata
 show_downloads: true
 google_analytics:
+
+defaults:
+  -
+    scope:
+      type: posts
+      path: _posts
+    values:
+      is_post: true
+      layout: post
+      permalink: /blog/:categories/:title/
+  -
+    scope:
+      type: pages
+      path: _pages
+    values:
+      is_post: false
+      layout: default
+
+include: [_pages]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
